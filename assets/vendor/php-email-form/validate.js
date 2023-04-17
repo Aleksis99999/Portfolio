@@ -56,8 +56,6 @@
       headers: {'X-Requested-With': 'XMLHttpRequest'}
     })
     .then(response => {
-      console.log(response.ok);
-      console.log(response.status);
       // console.log(response.text());
       if( response.status == '200' ) {
         return response.text();
@@ -72,7 +70,7 @@
         thisForm.querySelector('.sent-message').classList.add('d-block');
         thisForm.reset(); 
       } else {
-        throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
+        throw new Error('Form submission failed and no error message returned from: ' + action); 
       }
     })
     .catch((error) => {
